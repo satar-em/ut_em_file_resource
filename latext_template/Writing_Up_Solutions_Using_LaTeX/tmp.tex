@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+%% Table packages
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{multirow}
+
+\title{Writing Up Solutions Using \LaTeX{} }
+\author{Mr. Jester}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+
+The goal of this document is to facilitate TeX-ing math solutions with ease. A handful of the important mathematics-writing packages are already imported, and at the bottom of the document are links to websites that are useful for finding the right commands for what you are trying to write. \\
+
+\noindent
+Of course, you may use this document to help learn how to write particular expressions or you may start a new document altogether, but this will at least get you started and give you a sense of what all you can do with \LaTeX{}.
+
+\section*{Sample Solution 1}
+Evaluate exactly $ \sin{ \frac{11\pi}{6} } - \cos{ \frac{11\pi}{4} } + \sin{ \frac{11\pi}{2} } $.\\
+
+\noindent
+First, let's begin with $ \sin{ \frac{11\pi}{6} } $. $ \sin{ \frac{11\pi}{6} } = \sin{ -\frac{\pi}{6} } = -\frac{1}{2} $. Next, let's look at $ \cos{ \frac{11\pi}{4} } = \cos{ \frac{3\pi}{4} } = -\frac{ \sqrt[]{2} }{2} $. Finally, $ \sin{ \frac{11\pi}{2} } = \sin{ \frac{3\pi}{2} } = -1 $. Taking this all together, we have 
+\begin{equation*}
+\begin{split}
+\sin{ \frac{11\pi}{6} } - \cos{ \frac{11\pi}{4} } + \sin{ \frac{11\pi}{2} } & = \left( -\frac{1}{2} \right) - \left( -\frac{ \sqrt[]{2}}{2} \right) + \left( -1 \right) \\
+& = -\frac{1}{2} + \frac{ \sqrt[]{2}}{2} -1 \\
+& = -\frac{1}{2} + \frac{ \sqrt[]{2}}{2} - \frac{2}{2} \\
+& = \frac{ -3 + \sqrt[]{2} }{2} \qed \\
+\end{split}
+\end{equation*}
+
+\section*{Sample Solution 2}
+Solve for $x$: $3\log_2(x-1)+log_{ \frac{1}{2} }(x+3)=3$.\\
+
+\noindent
+First, use the the change of base formula so that both logarithms share the same base. Use the log law of exponents to move the $3$ up into the exponent of the log in the first term of the equation.
+\begin{equation}\label{1}
+\log_2(x-1)^3 + \frac{\log_2(x+3)}{ \log_2{ \frac{1}{2} } } = 3
+\end{equation}
+
+\noindent
+Now, notice that $\log_2{ \frac{1}{2} } = -1$ and use the log law of subtraction to combine equation \ref{1}
+\begin{equation}\label{2}
+\log_2 \frac{(x-1)^3}{x+3} = 3
+\end{equation}
+
+\noindent
+Finally, rewrite equation \ref{2} in exponential form, multiply both sides through by $(x+3)$, and expand the polynomials
+$$2^3 = \frac{(x-1)^3}{x+3}$$
+$$8x + 24=x^3 - 3x^2 + 3x - 1$$
+\begin{equation}\label{3}
+x^3 - 3x^2 - 5x - 25 = 0
+\end{equation}
+
+\noindent
+At this point, you may do one of two things: 1) You may use a graphing calculator to see that the polynomial in equation \ref{3} only crosses the x-axis once; or, 2) you may use the rational roots theorem and synthetic division on equation \ref{3} to find the root $x = 5$, then notice that the polynomial with which you are has no more real solutions. Therefore, the only solution to the expression $3\log_2(x - 1) + log_{1/2}(x + 3) = 3$ is $x = 5$.
+
+
+
+\section*{Some \LaTeX{} References}
+These are each hyperlinked for your convenience. Once your document is complete and ready to be submitted, you may delete this section.
+
+\begin{itemize}
+\item \href{https://en.wikibooks.org/wiki/LaTeX/Mathematics}{A WikiBook on using \LaTeX{}}
+\item \href{https://en.wikipedia.org/wiki/List_of_mathematical_symbols}{The Wikipedia list of mathematical symbols}
+\item \href{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols#Arrows}{Though the Wiki page above includes the \LaTeX{} command to write the symbol, here is another page that lists the available \LaTeX{} symbols and their commmands.}
+\item \href{https://www.sharelatex.com/learn/Main_Page}{Share \LaTeX{} has great documentation for the language.}
+\item \href{https://tex.stackexchange.com}{The \LaTeX{} StackExchange is useful, too, if you are unable to find an answer on ShareLaTeX.}
+\end{itemize}
+
+\end{document}
